@@ -1,0 +1,37 @@
+﻿@model List<BICDirectoryEntry>
+
+@{
+    ViewData["Title"] = "Результат";
+}
+<script>
+    var bicDirectoryEntries = @Html.Raw(Json.Serialize(Model));
+
+    console.log(bicDirectoryEntries);
+</script>
+
+<div class="text-center">
+    <h1 class="display-4">Результат загрузки</h1>
+    <p>Ваши данные:</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>BIC</th>
+                <th>Название</th>
+                <th>Регион</th>
+                <!-- Другие заголовки столбцов -->
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var entry in Model)
+            {
+                <tr>
+                    <td>@entry.BIC</td>
+                    <td>@entry.ParticipantInfo.NameP</td>
+                    <td>@entry.ParticipantInfo.Rgn</td>
+                    <!-- Другие ячейки данных -->
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
