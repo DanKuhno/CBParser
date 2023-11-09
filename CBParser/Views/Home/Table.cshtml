@@ -19,7 +19,6 @@
                 <th>BIC</th>
                 <th>Название</th>
                 <th>Регион</th>
-                <!-- Другие заголовки столбцов -->
             </tr>
         </thead>
         <tbody>
@@ -27,11 +26,12 @@
             {
                 <tr>
                     <td>@entry.BIC</td>
-                    <td>@entry.ParticipantInfo.NameP</td>
-                    <td>@entry.ParticipantInfo.Rgn</td>
-                    <!-- Другие ячейки данных -->
+                    <td>@entry.Accounts.Count</td>
+                    <td>@entry.ParticipantInfos.Count</td>
                 </tr>
+             
             }
         </tbody>
+
     </table>
 </div>
