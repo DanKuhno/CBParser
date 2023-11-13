@@ -16,18 +16,39 @@
     <table>
         <thead>
             <tr>
-                <th>BIC</th>
-                <th>Название</th>
-                <th>Регион</th>
+                <th>Название организации</th>
+                <th>БИК</th>
+                <th>Количество счетов</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var entry in Model)
             {
                 <tr>
+                    <td>
+                        <details>
+                            <summary>@entry.ParticipantInfos.NameP</summary>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Номер счета</th>
+                                        <th>Тип счета</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var account in entry.Accounts)
+                                    {
+                                        <tr>
+                                            <td>@account.AccountNumber</td>
+                                            <td>@account.RegulationAccountType</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </details>
+                    </td>
                     <td>@entry.BIC</td>
                     <td>@entry.Accounts.Count</td>
-                    <td>@entry.ParticipantInfos.Count</td>
                 </tr>
              
             }

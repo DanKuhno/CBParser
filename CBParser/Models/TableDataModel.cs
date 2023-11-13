@@ -32,7 +32,7 @@
     {
         public string BIC { get; set; }
         public List<Account> Accounts { get; set; }
-        public List<ParticipantInfo> ParticipantInfos { get; set; }
+        public ParticipantInfo ParticipantInfos { get; set; }
     }
 }
 

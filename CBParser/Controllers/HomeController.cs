@@ -26,8 +26,8 @@ namespace CBParser.Controllers
         {
             if (file != null)
             {
-
-                using (var reader = new StreamReader(file.OpenReadStream()))
+                Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+                using (var reader = new StreamReader(file.OpenReadStream(), Encoding.GetEncoding(1251)))
                 {
                     try
                     {
@@ -70,7 +70,7 @@ namespace CBParser.Controllers
                                         UID = (string)partInfoElement.Attribute("UID"),
                                         ParticipantStatus = (string)partInfoElement.Attribute("ParticipantStatus")
                                     })
-                                    .ToList()
+                                    .FirstOrDefault()
 
                             })
                             .ToList();
